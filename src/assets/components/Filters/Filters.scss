@@ -1,0 +1,19 @@
+.tabs-wrapper {
+    width: 502px; 
+    display: "flex"; 
+    justify-content: "space-between"; // Распределяем равномерно
+    .ant-tabs-tab {
+        width: calc(100% / 3) !important;
+        margin: 0 !important;
+        // height: 50px !important;
+        // text-transform: uppercase;
+        // font-size: 12px !important;
+        // display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 15px !important;
+    }
+    .ant-tabs-nav-operations {
+        display: none !important;
+    }
+}

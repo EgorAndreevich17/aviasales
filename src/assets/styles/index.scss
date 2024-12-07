@@ -1,0 +1,10 @@
+@import './nullstyle.scss';
+@import './global.scss';
+
+// Стили компонентов
+@import '../components/App/App.scss';
+@import '../components/Header/Header.scss';
+@import '../components/Body/Body.scss';
+@import '../components/Filters/Filters.scss';
+@import '../components/Sidebar/SideBar.scss';
+@import '../components/TicketBox/TicketBox.scss'

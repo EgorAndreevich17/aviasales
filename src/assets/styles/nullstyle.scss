@@ -1,0 +1,107 @@
+/* nullstyle.scss */
+
+/* Сброс отступов, паддингов и границ для всех элементов */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box; /* Обеспечивает корректную работу с размерами */
+}
+
+/* Удаляем маркеры списков */
+ol,
+ul {
+  list-style: none;
+}
+
+/* Убираем подчеркивания ссылок и сбрасываем цвет */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Убираем оформление кнопок */
+button,
+input,
+textarea,
+select {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: none;
+  outline: none;
+}
+
+/* Убираем оформление ссылок с атрибутом href */
+a[href] {
+  cursor: pointer;
+}
+
+/* Сброс стилей заголовков */
+h1, h2, h3, h4, h5, h6 {
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+/* Сброс для изображений */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  border-style: none;
+}
+
+/* Убираем специфичные стили таблиц */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* Убираем дефолтные отступы для полей формы */
+input[type='text'],
+input[type='email'],
+input[type='password'],
+textarea {
+  -webkit-appearance: none; /* Убирает стилизацию в WebKit */
+  -moz-appearance: none; /* Убирает стилизацию в Firefox */
+  appearance: none; /* Убирает стилизацию в современных браузерах */
+}
+
+/* Сброс для HTML5-элементов */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+menu,
+nav,
+section,
+summary {
+  display: block;
+}
+
+/* Сброс inline элементов */
+strong,
+b {
+  font-weight: bold;
+}
+em,
+i {
+  font-style: italic;
+}
+
+/* Убираем подчеркивания для ссылок внутри svg */
+svg a {
+  text-decoration: none;
+}
+
+/* Для предотвращения выделения текста */
+:focus {
+  outline: none;
+}

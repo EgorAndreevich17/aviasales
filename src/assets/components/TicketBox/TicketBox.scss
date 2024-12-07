@@ -1,0 +1,17 @@
+@import '../../styles/colors.scss';
+
+.ticket {
+    &-box {
+        &--wrapper {
+            display: flex;
+        }
+        &--header {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+    }
+    &--price{
+      color: $MAIN-BLUE;
+    }
+}
