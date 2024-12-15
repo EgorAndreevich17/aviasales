@@ -1,9 +1,11 @@
-import TicketBox from "../TicketBox/TicketBox";
+import TicketBox from '../TicketBox/TicketBox'
 
 interface TicketsListProps {
-    filter: string;
+  filter: string
 }
 
 export default function TicketsList({ filter }: TicketsListProps) {
-    return <TicketBox />;
+  console.log(filter)
+
+  return <TicketBox />
 }
