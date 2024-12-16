@@ -1,11 +1,16 @@
 import { Tabs } from 'antd'
+import { useDispatch, useSelector } from 'react-redux'
 
+import { changeTab } from '../../../store/slices/tabSlice'
 import TicketsList from '../TicketsList/TicketsList'
-// import "./Filters.scss";
+import { RootState } from '../../../store'
 
 export default function Filters() {
+  const tabs = useSelector((state: RootState) => state.tab)
+  const dispatch = useDispatch()
+
   const onTabClick = (key: string) => {
-    console.log(key)
+    dispatch(changeTab(key))
   }
   return (
     <div className="tabs-wrapper">
@@ -13,23 +18,11 @@ export default function Filters() {
         onTabClick={onTabClick}
         type="card"
         size="large"
-        items={[
-          {
-            label: 'Самый быстрый',
-            key: '1',
-            children: <TicketsList filter="fastest" />,
-          },
-          {
-            label: 'Самый дешевый',
-            key: '2',
-            children: <TicketsList filter="cheapest" />,
-          },
-          {
-            label: 'Оптимальный',
-            key: '3',
-            children: <TicketsList filter="most optimal" />,
-          },
-        ]}
+        items={tabs.map((tab) => ({
+          label: tab.label,
+          key: tab.key,
+          children: <TicketsList filter={tab.filter} />, // Рендерим компонент по фильтру
+        }))}
       />
     </div>
   )

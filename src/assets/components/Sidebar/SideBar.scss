@@ -1,8 +1,22 @@
 .sidebar-menu {
-    display: flex;
-    flex-direction: column;
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 5px;
-    width: 232px;
+  display: flex;
+  flex-direction: column;
+  padding-block: 10px;
+  background-color: #fff;
+  border-radius: 5px;
+  width: 232px;
+  & div {
+    font-size: 13px;
+    padding: 10px 20px;
+    // background-color: red;
+    &:not(:first-child):hover {
+      background-color: #f1fcff;
+    }
+    &:first-child {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+  }
 }

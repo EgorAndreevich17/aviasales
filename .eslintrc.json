@@ -11,21 +11,20 @@
     "plugin:import/errors",
     "plugin:import/warnings"
   ],
-  "parser": "@typescript-eslint/parser", // Указываем парсер для TypeScript
+  "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "ecmaVersion": 2021,
     "sourceType": "module",
     "ecmaFeatures": {
-      "jsx": true // Включаем поддержку JSX
+      "jsx": true
     }
   },
   "plugins": ["react", "prettier", "import"],
   "rules": {
-    "indent": ["error", 2],
+    "indent": "off",
     "prettier/prettier": "error",
-    "linebreak-style": [0, "unix"],
     "quotes": ["error", "single"],
-    "semi": ["off"],
+    "semi": "off",
     "react/react-in-jsx-scope": "off",
     "react/prop-types": 0,
     "import/no-unresolved": [2, { "caseSensitive": false }],
