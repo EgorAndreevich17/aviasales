@@ -1,0 +1,29 @@
+:global {
+  .ant-tabs-tab {
+    margin: 0 !important;
+    padding: 15px !important;
+    width: 167px !important;
+    border-radius: 0 !important;
+    align-items: center;
+    justify-content: center;
+    &-btn {
+      font-size: 12px !important;
+    }
+  }
+
+  .ant-tabs-nav {
+    &-wrap {
+      border-radius: 10px !important;
+    }
+
+    &-operations {
+      display: none !important;
+    }
+  }
+}
+
+.wrapper {
+  width: 502px;
+  display: 'flex';
+  justify-content: 'space-between';
+}

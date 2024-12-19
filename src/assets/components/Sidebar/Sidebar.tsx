@@ -1,11 +1,12 @@
-import { useSelector, useDispatch } from 'react-redux'
 import { Checkbox } from 'antd'
-import type { CheckboxChangeEvent } from 'antd/es/checkbox'
+import { useSelector, useDispatch } from 'react-redux'
 
+import { filterTickets, sortTickets } from '../../../store/slices/ticketSlice'
 import { RootState } from '../../../store'
 import { toggleFilter } from '../../../store/slices/filterSlice'
 
-// Функция для получения читабельного названия фильтра
+import styles from './SideBar.module.scss'
+
 function getFilterLabel(filterName: string): string {
   switch (filterName) {
     case 'all':
@@ -24,22 +25,33 @@ function getFilterLabel(filterName: string): string {
 }
 
 export default function Sidebar() {
-  const filters = useSelector((state: RootState) => state.filter)
+  const filters = useSelector((state: RootState) => state.filters)
+  const tabs = useSelector((state: RootState) => state.tabs)
   const dispatch = useDispatch()
 
-  const onChange = (e: CheckboxChangeEvent, filterName: string) => {
-    dispatch(toggleFilter(filterName)) // Диспатчим экшен для изменения состояния
+  const handleFilterClick = (filterName: string) => {
+    dispatch(toggleFilter(filterName))
+
+    const activeFilters = filters
+      .map((filter) => (filter.name === filterName ? { ...filter, isActive: !filter.isActive } : filter))
+      .filter((filter) => filter.isActive)
+      .map((filter) => filter.name)
+
+    dispatch(filterTickets(activeFilters))
+
+    const activeTab = tabs.find((tab) => tab.isActive)?.key || 'fastest'
+    dispatch(sortTickets(activeTab))
   }
 
   return (
-    <div className="sidebar-menu">
+    <div className={styles.menu}>
       <div>
         <h3>Количество пересадок</h3>
       </div>
       {filters.map((filter) => (
         <div key={filter.name}>
           <Checkbox
-            onChange={(e) => onChange(e, filter.name)}
+            onChange={() => handleFilterClick(filter.name)}
             checked={filter.isActive} // Привязываем состояние к Redux
           >
             {getFilterLabel(filter.name)}

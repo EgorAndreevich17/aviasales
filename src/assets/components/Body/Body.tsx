@@ -1,10 +1,11 @@
 import Sidebar from '../Sidebar/Sidebar'
 import Filters from '../Filters/Filters'
-// import './Body.scss'
+
+import styles from './Body.module.scss'
 
 export default function Body() {
   return (
-    <div className="body-wrapper">
+    <div className={styles.wrapper}>
       <Sidebar></Sidebar>
       <Filters></Filters>
     </div>

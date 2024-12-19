@@ -1,12 +1,23 @@
-// import './App.scss'
 import { ConfigProvider } from 'antd'
+import { useEffect } from 'react'
+import { useDispatch } from 'react-redux'
 
+import { fetchTickets, sortTickets } from '../../../store/slices/ticketSlice'
 import Body from '../Body/Body'
 import Header from '../Header/Header'
 
+import styles from './App.module.scss'
+
 function App() {
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    dispatch(fetchTickets())
+    dispatch(sortTickets('fastest'))
+  }, [dispatch])
+
   return (
-    <div className="app">
+    <div className={styles.app}>
       <ConfigProvider
         theme={{
           components: {
@@ -16,9 +27,7 @@ function App() {
               fontFamily: 'Open Sans',
             },
             Checkbox: {
-              // colorBgContainer: "white",
               colorPrimary: '#2196F3',
-              // colorPrimaryBorder: '#2196F3'
             },
           },
         }}

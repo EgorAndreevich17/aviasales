@@ -1,9 +1,10 @@
 import logo from '@public/images/Logo.png'
-// import "./Header.scss";
+
+import styles from './Header.module.scss'
 
 export default function Header() {
   return (
-    <div className="header">
+    <div className={styles.header}>
       <img src={logo}></img>
     </div>
   )
