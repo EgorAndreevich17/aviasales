@@ -3,13 +3,14 @@ import { useEffect } from 'react'
 import { useDispatch } from 'react-redux'
 
 import { fetchTickets, sortTickets } from '../../../store/slices/ticketSlice'
+import { AppDispatch } from '../../../store'
 import Body from '../Body/Body'
 import Header from '../Header/Header'
 
 import styles from './App.module.scss'
 
 function App() {
-  const dispatch = useDispatch()
+  const dispatch = useDispatch<AppDispatch>()
 
   useEffect(() => {
     dispatch(fetchTickets())

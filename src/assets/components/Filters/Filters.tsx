@@ -16,8 +16,9 @@ export default function Filters() {
 
   const onTabClick = (key: string) => {
     const activeTab = tabs.find((tab) => tab.key === key)
+    const filter = activeTab?.filter || 'fastest'
     dispatch(changeTab(key))
-    dispatch(sortTickets(activeTab.filter))
+    dispatch(sortTickets(filter))
   }
 
   return (

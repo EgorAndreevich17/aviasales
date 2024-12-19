@@ -24,7 +24,7 @@ export default function TicketBox(ticket: any) {
           </div>
           <div>
             <div>{getStopsText(ticket.ticket.segments[0].stops.length)}</div>
-            <div>{ticket.ticket.segments[0].stops.map((stop) => `${stop} `)}</div>
+            <div>{ticket.ticket.segments[0].stops.map((stop: any) => `${stop} `)}</div>
           </div>
         </div>
         <div className={styles.body_wrapper}>
