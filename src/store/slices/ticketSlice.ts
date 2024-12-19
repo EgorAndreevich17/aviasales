@@ -71,8 +71,8 @@ const ticketSlice = createSlice({
     filterTickets: (state, action) => {
       const activeFilters = action.payload
 
-      // Если ни один фильтр не активен или включен фильтр "all", показываем все билеты
-      if (activeFilters.length === 0 || activeFilters.includes('all')) {
+      // Если включен фильтр "all", показываем все билеты
+      if (activeFilters.includes('all')) {
         state.filteredTickets = [...state.tickets]
         return
       }

@@ -1,5 +1,5 @@
 import { useSelector } from 'react-redux'
-import { Spin, Empty } from 'antd'
+import { Spin, Empty, Alert } from 'antd'
 
 import { RootState } from '../../../store'
 import TicketBox from '../TicketBox/TicketBox'
@@ -11,12 +11,12 @@ export default function TicketsList() {
 
   if (loading) return <Spin />
 
-  if (error) return <Empty />
+  if (error) return <Alert type="error" message="Error" />
 
   return (
     <div>
       {tickets.length === 0 ? (
-        <div>Нет билетов</div>
+        <Empty description="Informational Notes" />
       ) : (
         tickets.map((ticket, index) => <TicketBox key={index} ticket={ticket} />)
       )}
