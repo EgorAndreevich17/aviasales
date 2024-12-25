@@ -1,9 +1,9 @@
 import { ConfigProvider } from 'antd'
 import { useEffect } from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 
-import { fetchTickets, sortTickets } from '../../../store/slices/ticketSlice'
-import { AppDispatch } from '../../../store'
+import { fetchTickets } from '../../../store/slices/ticketSlice'
+import { AppDispatch, RootState } from '../../../store'
 import Body from '../Body/Body'
 import Header from '../Header/Header'
 
@@ -11,11 +11,13 @@ import styles from './App.module.scss'
 
 function App() {
   const dispatch = useDispatch<AppDispatch>()
+  // const tickets = useSelector((state: RootState) => state.tickets.tickets)
+  const stop = useSelector((state: RootState) => state.tickets.isStop)
 
   useEffect(() => {
     dispatch(fetchTickets())
-    dispatch(sortTickets('fastest'))
-  }, [dispatch])
+    // dispatch(sortTickets('fastest'))
+  }, [stop, dispatch])
 
   return (
     <div className={styles.app}>

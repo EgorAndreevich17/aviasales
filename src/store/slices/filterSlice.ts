@@ -22,7 +22,7 @@ const filterSlice = createSlice({
   reducers: {
     toggleFilter: (state, action: PayloadAction<string>) => {
       const filterName = action.payload
-
+      // console.log(filterName)
       if (filterName === 'all') {
         // Включаем/выключаем фильтр "all"
         const allFilter = state.find((f) => f.name === 'all')

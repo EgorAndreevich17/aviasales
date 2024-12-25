@@ -1,5 +1,6 @@
 import { Checkbox } from 'antd'
 import { useSelector, useDispatch } from 'react-redux'
+import { useEffect } from 'react'
 
 import { filterTickets, sortTickets } from '../../../store/slices/ticketSlice'
 import { RootState } from '../../../store'
@@ -28,6 +29,10 @@ export default function Sidebar() {
   const filters = useSelector((state: RootState) => state.filters)
   const tabs = useSelector((state: RootState) => state.tabs)
   const dispatch = useDispatch()
+
+  useEffect(() => {
+    dispatch(toggleFilter('all'))
+  }, [])
 
   const handleFilterClick = (filterName: string) => {
     dispatch(toggleFilter(filterName))

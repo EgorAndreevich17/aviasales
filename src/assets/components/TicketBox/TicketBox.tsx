@@ -3,6 +3,7 @@ import logo from '@public/images/S7_Logo.png'
 import styles from './TicketBox.module.scss'
 
 export default function TicketBox(ticket: any) {
+  // console.log(ticket)
   const imgPath = `https://pics.avs.io/99/36/${ticket.ticket.carrier}.png`
   return (
     <div className={styles.wrapper}>
