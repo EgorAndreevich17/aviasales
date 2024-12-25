@@ -1,1 +1,1 @@
-<a href='https://aviasales-omega-tawny.vercel.app/'>Ссылка на сайт</a>
+<a href='https://aviasales-dzjh.vercel.app/'>Ссылка на сайт</a>
